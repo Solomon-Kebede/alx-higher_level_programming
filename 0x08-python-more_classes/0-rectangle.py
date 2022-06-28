@@ -3,4 +3,6 @@
 
 
 class Rectangle:
-    pass
+    """docsting for init"""
+    def __init__(self):
+        pass
