@@ -83,11 +83,5 @@ class Rectangle:
     """returns a new Rectangle instance with width == height == size"""
     @classmethod
     def square(cls, size=0):
-        new_instance = Rectangle()
-        if not isinstance(size, int) or not isinstance(size, int):
-            raise TypeError("wrong type")
-        if size >= 0:
-            cls.__init__(new_instance, size, size)
-            return new_instance
-        elif size < 0:
-            raise ValueError("size < 0")
+        new_instance = cls(size, size)
+        return new_instance
