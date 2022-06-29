@@ -3,6 +3,7 @@
 
 
 class Rectangle:
+    """number of instances"""
     number_of_instances = 0
     """doctring for init"""
     def __init__(self, width, height):
