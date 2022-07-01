@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module documentation"""
+
+
 def add_integer(a, b=98):
     """ Adds Integers """
     if not isinstance(a, int) and not isinstance(a, float):
