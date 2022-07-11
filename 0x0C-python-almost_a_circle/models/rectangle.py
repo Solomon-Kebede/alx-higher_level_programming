@@ -83,3 +83,8 @@ class Rectangle(Base):
         """print rectangle"""
         line = '#' * self.width
         print(((line + '\n') * (self.height - 1)) + line)
+
+    def __str__(self):
+        """override the method to display rectangle info"""
+        return f"[Rectangle] \
+                ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
