@@ -81,8 +81,8 @@ class Rectangle(Base):
 
     def display(self):
         """print rectangle"""
-        line = '#' * self.width
-        print(((line + '\n') * (self.height - 1)) + line)
+        line = ' ' * self.x + '#' * self.width
+        print(('\n' * self.y) + ((line + '\n') * (self.height - 1)) + line)
 
     def __str__(self):
         """override the method to display rectangle info"""
