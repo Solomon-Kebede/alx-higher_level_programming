@@ -89,3 +89,15 @@ class Rectangle(Base):
         x = self.x
         y = self.y
         return f"[Rectangle] ({self.id}) {x}/{y} - {self.width}/{self.height}"
+
+    def update(self, *args):
+        """updates/assigns an argument to each attribute"""
+        order = [
+                'id',
+                '_Rectangle__width',
+                '_Rectangle__height',
+                '_Rectangle__x',
+                '_Rectangle__y'
+                ]
+        for i, j in zip(order, args):
+            self.__dict__[i] = j
