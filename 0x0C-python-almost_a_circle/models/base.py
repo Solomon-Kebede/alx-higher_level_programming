@@ -45,3 +45,7 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
         pass
+
+    def load_from_file(cls):
+        """returns a list of instances"""
+        pass
