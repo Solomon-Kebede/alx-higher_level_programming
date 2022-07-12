@@ -114,4 +114,11 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle object"""
-        return self.__dict__
+        order_extern = ['id', 'width', 'height', 'x', 'y']
+        new_dict = dict()
+        for k, m in zip(self.__dict__.keys(), order_extern):
+            if f'_Rectangle__{m}' not in self.__dict__.keys():
+                new_dict[m] = self.__dict__[m]
+            else:
+                new_dict[m] = self.__dict__[f'_Rectangle__{m}']
+        return new_dict
