@@ -33,3 +33,11 @@ class Base:
             # content = list_objs
         with open(filename, 'w') as f:
             f.write(Base.to_json_string(content))
+
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation json_string"""
+        import json
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)
