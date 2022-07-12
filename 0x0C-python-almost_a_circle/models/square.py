@@ -32,3 +32,28 @@ class Square(Rectangle):
         x = self.x
         y = self.y
         return f"[Square] ({self.id}) {x}/{y} - {self.size}"
+
+    def update(self, *args, **kwargs):
+        """override and /updates/assigns an argument to each attribute"""
+        order_extern = ['id', 'size', 'x', 'y']
+        order_in_class = [
+                'id',
+                '_Square__size',
+                '_Rectangle__x',
+                '_Rectangle__y'
+                ]
+        tmp = dict()
+        for i, j, h in zip(order_in_class, args, order_extern):
+            tmp[h] = j
+            self.__dict__[i] = j
+        for k, v in kwargs.items():
+            if k not in tmp.keys():
+                tmp[k] = v
+                if k == 'id':
+                    self.__dict__[k] = v
+                elif k == 'size':
+                    self.__dict__[f"_Square__{k}"] = v
+                    self.__dict__[f"_Rectangle__width"] = v
+                    self.__dict__[f"_Rectangle__height"] = v
+                elif k in order_extern:
+                    self.__dict__[f"_Rectangle__{k}"] = v
