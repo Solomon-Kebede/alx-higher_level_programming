@@ -92,12 +92,22 @@ class Rectangle(Base):
 
     def update(self, *args):
         """updates/assigns an argument to each attribute"""
-        order = [
+        order_extern = ['id', 'width', 'height', 'x', 'y']
+        order_in_class = [
                 'id',
                 '_Rectangle__width',
                 '_Rectangle__height',
                 '_Rectangle__x',
                 '_Rectangle__y'
                 ]
-        for i, j in zip(order, args):
+        tmp = dict()
+        for i, j, h in zip(order_in_class, args, order_extern):
+            tmp[h] = j
             self.__dict__[i] = j
+        for k, v in kwargs.items():
+            if k not in tmp.keys():
+                tmp[k] = v
+                if k == 'id':
+                    self.__dict__[k] = v
+                elif k in order_extern:
+                    self.__dict__[f"_Rectangle__{k}"] = v
