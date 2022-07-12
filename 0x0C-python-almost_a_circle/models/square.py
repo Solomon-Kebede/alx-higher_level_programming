@@ -57,3 +57,13 @@ class Square(Rectangle):
                     self.__dict__[f"_Rectangle__height"] = v
                 elif k in order_extern:
                     self.__dict__[f"_Rectangle__{k}"] = v
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle object"""
+        order_extern = ['id', 'size', 'x', 'y']
+        new_dict = dict()
+        new_dict['id'] = self.__dict__['id']
+        new_dict['size'] = self.__dict__['_Square__size']
+        new_dict['x'] = self.__dict__['_Rectangle__x']
+        new_dict['y'] = self.__dict__['_Rectangle__y']
+        return new_dict
