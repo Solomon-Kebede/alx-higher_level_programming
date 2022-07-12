@@ -111,3 +111,7 @@ class Rectangle(Base):
                     self.__dict__[k] = v
                 elif k in order_extern:
                     self.__dict__[f"_Rectangle__{k}"] = v
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle object"""
+        return self.__dict__
