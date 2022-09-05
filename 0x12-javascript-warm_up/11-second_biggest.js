@@ -15,6 +15,6 @@ const argv = process.argv;
 if (argv.length <= 3) {
   console.log(0);
 } else if (argv.length > 3) {
-  const args = argv.slice(2);
-  console.log(args.sort().reverse()[1]);
+  // const args = argv.slice(2);
+  console.log(argv.slice(2).sort().reverse()[1]);
 }
