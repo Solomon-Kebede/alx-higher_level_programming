@@ -11,21 +11,23 @@ Write a class `Rectangle`` that defines a rectangle:
     Create an instance method called `print()`` that prints the rectangle using the character `X`
 
 */
-
+// TODO: Read more on classes
 module.exports = class Rectangle {
+  // TODO: Read more on constructors
   constructor (w, h) {
     if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
-      this.print = function () {
-        let char = '';
-        for (let i = 0; i < this.width; i++) {
-          char = char + 'X';
-        }
-        for (let i = 0; i < this.height; i++) {
-          console.log(char);
-        }
-      };
+    }
+  }
+
+  print () {
+    let char = '';
+    for (let i = 0; i < this.width; i++) {
+      char = char + 'X';
+    }
+    for (let i = 0; i < this.height; i++) {
+      console.log(char);
     }
   }
 };
