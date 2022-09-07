@@ -24,10 +24,10 @@ class Square extends Square5 {
       ch = c;
     }
 
-    for (let i = 0; i < this.size; i++) {
+    for (let i = 0; i < this.width; i++) {
       char = char + ch;
     }
-    for (let i = 0; i < this.size; i++) {
+    for (let i = 0; i < this.height; i++) {
       console.log(char);
     }
   }
