@@ -11,7 +11,7 @@ Write a script that imports a dictionary of occurrences by user id and computes 
 
 */
 // TODO: "Unknown" Correction Required!
-const dict = require('./101-data.js').dict;
+const dict = require('./101-data').dict;
 console.log(dict);
 
 const newKeys = new Set(Object.values(dict));
