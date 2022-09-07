@@ -16,5 +16,8 @@ if (argv.length <= 3) {
   console.log(0);
 } else if (argv.length > 3) {
   // const args = argv.slice(2);
-  console.log(argv.slice(2).sort().reverse()[1]);
+  // https://www.freecodecamp.org/news/javascript-array-sort-tutorial-how-to-use-js-sort-methods-with-code-examples/
+  // The sort method, fortunately, can sort negative, zero, and positive values in the correct order
+  console.log(argv.slice(2).sort(function (a, b) { return a - b; }).reverse()[1]);
+  // console.log(argv.slice(2).sort().reverse()[1]);
 }
