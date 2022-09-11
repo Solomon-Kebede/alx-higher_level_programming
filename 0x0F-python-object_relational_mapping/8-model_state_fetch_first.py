@@ -32,5 +32,8 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    for name, in session.query(State.name).filter_by(id=1):
-        print(f"1: {name}")
+    result = session.query(State.name).first()
+    if result is None:
+        print('Nothing')
+    else:
+        print(f"1: {result[0]}")
