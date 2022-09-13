@@ -21,10 +21,6 @@ def matrix_divided(matrix, div):
                 for j in matrix[i]:
                     if not isinstance(j, int) and not isinstance(j, float):
                         raise TypeError(error_1)
-                        # print('What is', type(j))
-                    elif isinstance(j, int) or isinstance(j, float):
-                        # print(j)
-                        pass
     if not isinstance(div, int) or not isinstance(div, int):
         raise TypeError(error_3)
     if div == 0:
@@ -36,4 +32,3 @@ def matrix_divided(matrix, div):
             lsi.append(round((j/div), 2))
         lso.append(lsi)
     return lso
-
