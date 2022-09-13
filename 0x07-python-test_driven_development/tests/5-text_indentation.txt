@@ -96,3 +96,31 @@ Test for removed space at beginning and end of line
     <BLANKLINE>
     <BLANKLINE>
 
+New Tests
+=========
+
+Test for two strings separated by a space
+
+::
+
+    >>> text_indentation( "Holberton School")
+    Holberton School
+
+Test for two strings joined by a one of the '.'
+
+::
+
+    >>> text_indentation( "Holberton.School")
+    Holberton
+    <BLANKLINE>
+    School
+
+Test for removed space at beginning and end of line
+
+::
+
+    >>> text_indentation('   Lorem ipsum dolor sit amet, consectetur adipiscing elit. ')
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    <BLANKLINE>
+    <BLANKLINE>
+
