@@ -1,0 +1,143 @@
+===============================
+ How to Use 2-matrix_divided.py
+===============================
+
+The ``matrix_divided(matrix, div)`` function adds up 2 integers.
+
+Importing the Module
+
+::
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Test a list of lists of integers and floats and a non-zero divisor
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+    >>> print(matrix_divided(matrix, -3))
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+Test division by zero
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+Test if each row has the same size
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+Test if divisor is not number
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, "S"))
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+Test when no arguments are passed
+
+::
+
+    >>> print(matrix_divided())
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+Test when one argument is passed
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+
+Test when divisor is very large
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 1e100))
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+Test when divisor is float('NaN')
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, float('NaN')))
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+Test when first argument is not a list of lists
+
+::
+    >>> print(matrix_divided(0))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+    >>> print(matrix_divided(0, 5))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test if resulting matrix is rounded to two significant figures
+
+::
+
+    >>> matrix = [
+    ... [1.0, 2.0, 3.0],
+    ... [4, 5, 6]
+    ... ]
+    >>> result = matrix_divided(matrix, 3)
+    >>> for i in result:
+    ...     for j in i:
+    ...             print(len(str(j).split('.')[1]) <= 2)
+    ... 
+    True
+    True
+    True
+    True
+    True
+    True
