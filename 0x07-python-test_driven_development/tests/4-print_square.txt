@@ -49,12 +49,10 @@ Test by passing a negative integer argument
 Test by passing a zero as an argument
 
 ::
-    >>> repr(print_square(0))
+    >>> print_square(0)
     <BLANKLINE>
-    'None'
-    >>>
 
-Test by passing a very large number
+Test by passing a large number #1
 
 ::
 
@@ -70,3 +68,4 @@ Test by passing a negative integer argument
     Traceback (most recent call last):
       ...
     TypeError: size must be an integer
+

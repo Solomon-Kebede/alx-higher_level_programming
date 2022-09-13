@@ -95,3 +95,4 @@ Test for removed space at beginning and end of line
     Lorem ipsum dolor sit amet, consectetur adipiscing elit
     <BLANKLINE>
     <BLANKLINE>
+
