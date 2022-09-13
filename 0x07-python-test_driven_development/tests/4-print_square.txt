@@ -55,14 +55,7 @@ Test by passing a zero as an argument
 Test by passing a large number #1
 
 ::
-    >>> print_square(1000000000000000)
-    Traceback (most recent call last):
-      ...
-    MemoryError
 
-Test by passing a large number #2
-
-::
     >>> print_square(1e500)
     Traceback (most recent call last):
       ...
