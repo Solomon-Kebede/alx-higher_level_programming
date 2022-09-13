@@ -4,23 +4,24 @@
 
 def matrix_divided(matrix, div):
     """ Divides Matrix by divider """
+    error_1 = 'matrix must be a matrix (list of lists) of integers/floats'
+    error_2 = 'Each row of the matrix must have the same size'
+    error_3 = 'div must be a number'
+    error_4 = 'division by zero'
     if not isinstance(matrix, list):
-        raise TypeError('matrix must be a matrix (list of lists)\
-         of integers/floats')
+        raise TypeError(error_1)
     elif isinstance(matrix, list):
         list_length_init = len(matrix[0])
         for i in range(len(matrix)):
             if not isinstance(matrix[i], list):
-                raise TypeError('matrix must be a matrix (list of lists)\
-                 of integers/floats')
+                raise TypeError(error_1)
             else:
                 if len(matrix[i]) != list_length_init:
-                    raise TypeError('Each row of the matrix must \
-                        have the same size')
+                    raise TypeError(error_2)
     if not isinstance(div, int) or not isinstance(div, int):
-        raise TypeError('div must be a number')
+        raise TypeError(error_3)
     if div == 0:
-        raise ZeroDivisionError('division by zero')
+        raise ZeroDivisionError(error_4)
     lso = list()
     for i in range(len(matrix)):
         lsi = list()
