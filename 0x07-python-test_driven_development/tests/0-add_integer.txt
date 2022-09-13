@@ -1,0 +1,98 @@
+===============================
+ How to Use 0-add_integer.py
+===============================
+
+The ``add_integer(a, b)`` function adds up 2 integers.
+
+Importing the Module
+
+::
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Numbers
+=======
+
+Test the function by passing one integer value
+
+::
+
+    >>> add_integer(2)
+    100
+
+Test the function by passing two integer values
+
+::
+
+    >>> add_integer(2, 8)
+    10
+
+Test the function by passing one floating-point value
+
+::
+
+    >>> add_integer(1.1)
+    99
+    >>> add_integer(1)
+    99
+
+Test the function by passing two floating-point values
+
+::
+
+    >>> add_integer(2.0, 5.0)
+    7
+
+Test the function by passing in obscenely large values
+
+::
+
+    >>> add_integer(1e100, 1e500)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+
+Non-Numbers
+===========
+
+Test the function by passing in a string for the first argument
+
+::
+
+    >>> add_integer("5")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Test the function by passing in a string for the second argument
+
+::
+
+    >>> add_integer(5, "10")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Test the function by passing in a unacceptable (list, None type) values
+
+::
+
+    >>> add_integer([1, 2], [3])
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(5, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Test the function by passing in no arguments
+
+::
+
+    >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
