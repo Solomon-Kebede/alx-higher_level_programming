@@ -31,3 +31,4 @@ if __name__ == '__main__':
         if 'a' in instance.name:
             session.delete(instance)
     session.commit()
+    session.close()
