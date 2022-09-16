@@ -27,10 +27,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    deletable = []
     for instance in session.query(State).order_by(State.id):
         if 'a' in instance.name:
-            deletable.append(instance)
-    for item in deletable:
-        session.delete(item)
+            session.delete(instance)
     session.commit()
