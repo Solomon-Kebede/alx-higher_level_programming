@@ -15,16 +15,17 @@ in the header of the response.
 import urllib.request
 from sys import argv
 
-if len(argv) > 1:
-    url = argv[1]
-    with urllib.request.urlopen(url) as res:
-        headers = res.headers
+if __name__ == "__main__":
+    if len(argv) > 1:
+        url = argv[1]
+        with urllib.request.urlopen(url) as res:
+            headers = res.headers
 
-    headers_dict = dict()
+        headers_dict = dict()
 
-    for header in headers.__str__().split('\n'):
-        try:
-            headers_dict[header.split(': ')[0]] = header.split(': ')[1]
-        except IndexError:
-            pass
-    print(headers_dict['X-Request-Id'])
+        for header in headers.__str__().split('\n'):
+            try:
+                headers_dict[header.split(': ')[0]] = header.split(': ')[1]
+            except IndexError:
+                pass
+        print(headers_dict['X-Request-Id'])
