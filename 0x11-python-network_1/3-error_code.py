@@ -19,14 +19,11 @@ from sys import argv
 from urllib import request
 from urllib.error import HTTPError
 
-url = argv[1]
-
-try:
-    with request.urlopen(url) as res:
-        if res.status < 400:
+if __name__ == '__main__':
+    if len(argv > 1):
+        url = argv[1]
+    try:
+        with request.urlopen(url) as res:
             print(res.read().decode())
-except HTTPError as e:
-    if e.status >= 400:
+    except HTTPError as e:
         print(f'Error code: {e.status}')
-    else:
-        print(res.read().decode())
