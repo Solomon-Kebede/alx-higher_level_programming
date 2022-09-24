@@ -17,9 +17,11 @@ the web server running on port 5000
 from sys
 from urllib
 
-if len(sys.argv >= 2):
-    url, email = sys.argv[1:3]
-    data = urllib.parse.urlencode({'email': email}).encode()
-    req = urllib.request.Request(url, data=data)
-    with urllib.request.urlopen(req) as res:
-        print(res.read().decode('utf-8'))
+if __name__ == '__main__':
+    if len(sys.argv >= 2):
+        url, email = sys.argv[1:3]
+        data = urllib.parse.urlencode({'email': email}).encode('utf-8')
+        req = urllib.request.Request(url, data=data)
+        with urllib.request.urlopen(req) as res:
+            body = res.read().decode('utf-8')
+        print(body)
