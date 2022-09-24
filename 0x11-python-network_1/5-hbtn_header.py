@@ -7,10 +7,10 @@ displays the value of the variable `X-Request-Id` in the response header
     The value of this variable is different for each request
     You don’t need to check script arguments (number and type)
 '''
-import requests
-from sys import argv
-
-if len(argv) > 1:
-    url = argv[1]
-    res = resuests.get(url)
-    print(res.headers['X-Request-Id'])
+if __name__ == '__main__':
+    import requests
+    from sys import argv
+    if len(argv) > 1:
+        url = argv[1]
+        res = requests.get(url)
+        print(res.headers['X-Request-Id'])
