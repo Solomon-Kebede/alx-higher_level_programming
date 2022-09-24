@@ -20,8 +20,7 @@ from urllib
 if __name__ == '__main__':
     if len(sys.argv >= 2):
         url, email = sys.argv[1:3]
-        data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-        req = urllib.request.Request(url, data=data)
-        with urllib.request.urlopen(req) as res:
+        data = urllib.parse.urlencode({'email': email}).encode('ascii')
+        with urllib.request.urlopen(url, data) as res:
             body = res.read().decode('utf-8')
         print(body)
