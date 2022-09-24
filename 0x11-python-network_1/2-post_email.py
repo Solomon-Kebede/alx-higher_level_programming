@@ -14,12 +14,12 @@ Please test your script in the sandbox provided, using
 the web server running on port 5000
 '''
 
-from sys import argv
-from urllib import request, parse
+from sys
+from urllib
 
-url, email = argv[1:3]
-url, email = argv[1:3]
-data = parse.urlencode({'email': email}).encode()
-req = request.Request(url, data=data)
-with request.urlopen(req) as res:
-    print(res.read().decode('utf-8'))
+if len(sys.argv >= 2):
+    url, email = sys.argv[1:3]
+    data = urllib.parse.urlencode({'email': email}).encode()
+    req = urllib.request.Request(url, data=data)
+    with urllib.request.urlopen(req) as res:
+        print(res.read().decode('utf-8'))
