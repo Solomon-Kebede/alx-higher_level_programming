@@ -28,4 +28,4 @@ if __name__ == "__main__":
                 headers_dict[header.split(': ')[0]] = header.split(': ')[1]
             except IndexError:
                 pass
-        print(headers_dict['X-Request-Id'])
+        print(headers_dict.get('X-Request-Id'))
