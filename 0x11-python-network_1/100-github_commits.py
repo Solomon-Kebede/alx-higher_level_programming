@@ -7,7 +7,8 @@
     -You must use the packages `requests` and `sys`
     -You are not allowed to import packages other than `requests` and `sys`
     -You don’t need to check arguments passed to the script (number or type)
-Only 17% of applicants for a backend position at Holberton finished this task in less than 15 minutes.
+-Only 17% of applicants for a backend position at Holberton finished this task
+in less than 15 minutes.
 '''
 
 if __name__ == '__main__':
