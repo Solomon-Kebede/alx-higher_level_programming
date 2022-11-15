@@ -20,13 +20,20 @@ if __name__ == '__main__':
     from sys import argv
     import requests
 
-    if len(argv > 1):
+    if len(argv) > 1:
         letter = argv[1]
-    elif len(argv == 1):
+    elif len(argv) == 1:
         letter = ''
 
+    headers = {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "User-Agent": "python-requests/2.27.1"
+    }
     data = {'q': letter}
-    res = requests.post(url, data)
+    url = 'http://0.0.0.0:5000/search_user'
+    res = requests.post(url, headers=headers, data=data)
     try:
         json = res.json()
         if json != {}:
