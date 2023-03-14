@@ -14,7 +14,8 @@ in less than 15 minutes.
 if __name__ == '__main__':
     import requests
     from sys import argv
-    owner, repo = argv[1:3]
+    # owner, repo = argv[1:3]
+    repo, owner = argv[1:3]
     url = f'https://api.github.com/repos/{owner}/{repo}/commits'
     headers = {
         "User-Agent": "python-requests/2.27.1",
@@ -23,7 +24,6 @@ if __name__ == '__main__':
     }
     res = requests.get(url, headers=headers)
     jsonData = res.json()
-    import pprint
     for data in jsonData:
         sha = data.get('sha')
         author_name = data.get('commit').get('author').get('name')
