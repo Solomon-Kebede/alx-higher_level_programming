@@ -20,7 +20,7 @@ from urllib import request
 from urllib.error import HTTPError
 
 if __name__ == '__main__':
-    if len(argv >= 1):
+    if len(argv) >= 1:
         url = argv[1]
         try:
             with request.urlopen(url) as res:
