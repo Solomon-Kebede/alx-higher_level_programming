@@ -24,6 +24,8 @@ if __name__ == '__main__':
     }
     res = requests.get(url, headers=headers)
     jsonData = res.json()
+    if len(jsonData) > 10:
+        jsonData = jsonData[0:10]
     for data in jsonData:
         sha = data.get('sha')
         author_name = data.get('commit').get('author').get('name')
