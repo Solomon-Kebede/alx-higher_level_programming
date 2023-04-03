@@ -8,41 +8,29 @@ Write a script that prints all characters of a Star Wars movie:
   -You must use the module `request`
 */
 
-// Include request module
 const request = require('request');
+const args = process.argv;
 
-// The first passed argument: movieID
-const movieID = process.argv.slice(2)[0];
-
-// url to be requested
-const movieUrl = `https://swapi-api.hbtn.io/api/films/${movieID}`;
-
-// Get info on a specific character
-function getCharacter (peopleUrl) {
-  const options = {
-    url: peopleUrl,
-    headers: {
-      'User-Agent': 'request',
-      Accept: 'application/json'
+if (args.length > 2) {
+  const filmId = args[2];
+  const filmUrl = `https://swapi-api.alx-tools.com/api/films/${filmId}`;
+  const charactersObject = {};
+  const characters = [];
+  request(filmUrl, (error, response, body) => {
+    if (error) { return error; }
+    const chars = JSON.parse(body).characters;
+    for (const c of chars) {
+      characters.push(c);
+      request(c, (e, r, body) => {
+        const name = `${JSON.parse(body).name}`;
+        charactersObject[c] = name;
+      });
     }
-  };
-  function callback (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      const info = JSON.parse(body);
-      console.log(info.name);
-    }
-  }
-  return request(options, callback);
+  });
+  setTimeout(() => {
+    characters.forEach((key) => {
+      console.log(charactersObject[key]);
+    });
+  }, 5000);
 }
 
-request(movieUrl, (error, response, body) => {
-  if (error) {
-    return console.log(error);
-  }
-  // Parse json body
-  const characterUrls = JSON.parse(body).characters;
-  // List characters in the order they came
-  for (let i = 0; i < characterUrls.length; i++) {
-    getCharacter(characterUrls[i]);
-  }
-});
