@@ -8,8 +8,11 @@ Write a class `MyInt` that inherits from `int`:
 
 
 class MyInt(int):
-	def __eq__(self, other):
-		return str(self) != str(other)
+    '''Overriding base integer class'''
+    def __eq__(self, other):
+        '''when equals not equal'''
+        return str(self) != str(other)
 
-	def __ne__(self, other):
-		return str(self) == str(other)
+    def __ne__(self, other):
+        '''when not equal, equal'''
+        return str(self) == str(other)
